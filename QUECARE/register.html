@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUECARE - Patient Registration</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef5ff;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 450px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1765b5;
+        }
+
+        p {
+            text-align: center;
+            color: #666;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 25px;
+            background-color: #1765b5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0d4c91;
+        }
+
+        #message {
+            margin-top: 18px;
+            text-align: center;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>QUECARE</h1>
+        <p>Patient Registration</p>
+
+        <form id="registrationForm">
+
+            <label for="patientName">Patient Name</label>
+            <input
+                type="text"
+                id="patientName"
+                placeholder="Enter your full name"
+                required
+            >
+
+            <label for="mobile">Mobile Number</label>
+            <input
+                type="tel"
+                id="mobile"
+                placeholder="Enter 10-digit mobile number"
+                maxlength="10"
+                required
+            >
+
+            <label for="department">Select Department</label>
+            <select id="department" required>
+                <option value="">Choose Department</option>
+                <option value="General Medicine">General Medicine</option>
+                <option value="Cardiology">Cardiology</option>
+                <option value="Orthopaedics">Orthopaedics</option>
+                <option value="Dermatology">Dermatology</option>
+                <option value="Paediatrics">Paediatrics</option>
+            </select>
+
+            <button type="submit">Get Initial Token</button>
+
+        </form>
+
+        <p id="message"></p>
+
+    </div>
+
+    <script>
+        const registrationForm =
+            document.getElementById("registrationForm");
+
+        if (registrationForm) {
+            registrationForm.addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                const name = document.getElementById("patientName").value.trim();
+                const mobile = document.getElementById("mobile").value.trim();
+                const department = document.getElementById("department").value;
+
+                if (!/^[0-9]{10}$/.test(mobile)) {
+                    document.getElementById("message").textContent =
+                        "Please enter a valid 10-digit mobile number.";
+                    return;
+                }
+
+                document.getElementById("message").textContent =
+                    "Registration form validated successfully! Backend token generation is coming next.";
+
+                console.log({
+                    name: name,
+                    mobile: mobile,
+                    department: department
+                });
+            });
+        }
+
+        function getToken() {
+            window.location.href = "register.html";
+        }
+    </script>
+
+</body>
+</html>
+
