@@ -1,0 +1,18 @@
+{
+  "name": "quecare-chatbot",
+  "version": "1.0.0",
+  "description": "QueCare WhatsApp chatbot (Evolution API)",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20.6.0"
+  },
+  "scripts": {
+    "start": "node --env-file=.env index.js",
+    "setup": "node --env-file=.env setup-webhook.js",
+    "test": "node test-flow.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "quecare-website",
+  "version": "1.0.0",
+  "description": "QueCare hospital token queue - website with patient, reception and doctor portals",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20.6.0"
+  },
+  "scripts": {
+    "start": "node --env-file=.env server.js",
+    "test": "node test-queue.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.119.2",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0"
+  }
+}

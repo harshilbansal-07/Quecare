@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Patient portal - QueCare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Instrument+Sans:wght@400..600&display=swap">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand-link" href="/"><span class="wordmark">QueCare</span><span class="tagline">Patient portal</span></a>
+  </header>
+  <main>
+    <div class="notice" role="note" style="margin-bottom:24px">
+      <p><strong>Emergency?</strong> Do not wait for a token. Go straight to the emergency department or call 112.</p>
+    </div>
+
+    <section class="panel" aria-labelledby="request-title">
+      <h2 id="request-title">Request a token</h2>
+      <p class="hint">You will get a request reference straight away. Reception confirms your request, and then you receive your queue token.</p>
+      <form id="request-form">
+        <label for="name">Full name</label>
+        <input type="text" id="name" required minlength="2" maxlength="60" autocomplete="name">
+        <label for="phone">Mobile number, with country code</label>
+        <input type="tel" id="phone" required placeholder="919876543210" inputmode="numeric" autocomplete="tel" aria-describedby="phone-hint">
+        <p id="phone-hint" class="field-hint">Use digits only. For India, start with 91 and then your 10-digit number.</p>
+        <label for="doctor">Doctor</label>
+        <select id="doctor" required><option value="">Loading doctors...</option></select>
+        <button type="submit">Request token</button>
+      </form>
+      <div id="request-msg" class="msg" role="status"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="track-title">
+      <h2 id="track-title">Check my token</h2>
+      <p class="hint">Enter the mobile number you used. The page updates every 20 seconds while it is open.</p>
+      <form id="status-form">
+        <label for="status-phone">Mobile number</label>
+        <input type="tel" id="status-phone" required placeholder="919876543210" inputmode="numeric" autocomplete="tel">
+        <button type="submit">Check status</button>
+      </form>
+      <div id="status-msg" class="msg" role="status"></div>
+      <div id="status-box" class="status-box" aria-live="polite" hidden></div>
+    </section>
+  </main>
+  <script src="/js/common.js"></script>
+  <script src="patient.js"></script>
+</body>
+</html>

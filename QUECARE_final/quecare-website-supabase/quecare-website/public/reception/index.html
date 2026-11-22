@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reception - QueCare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Instrument+Sans:wght@400..600&display=swap">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand-link" href="/"><span class="wordmark">QueCare</span><span class="tagline">Reception</span></a>
+    <span class="who"><span id="who">Reception</span><button id="logout" class="light small" type="button">Log out</button></span>
+  </header>
+  <main>
+    <div id="msg" class="msg" role="status"></div>
+
+    <section class="panel" aria-labelledby="pending-title">
+      <h2 id="pending-title">Pending requests</h2>
+      <p class="hint">Check that the doctor is available and the patient is inside the hospital, then confirm. This page refreshes every 10 seconds.</p>
+      <div class="table-wrap">
+        <table class="stack">
+          <thead><tr><th>Reference</th><th>Patient</th><th>Phone</th><th>Doctor</th><th>Source</th><th>Checks</th><th>Action</th></tr></thead>
+          <tbody id="pending-rows"></tbody>
+        </table>
+      </div>
+      <p id="pending-empty" class="empty" hidden>No pending requests.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="waiting-title">
+      <h2 id="waiting-title">Waiting list</h2>
+      <p class="hint">These patients arrived after today's capacity was reached. Move a patient forward to confirm them. Confirming a full day needs a capacity exception, which is logged.</p>
+      <div class="table-wrap">
+        <table class="stack">
+          <thead><tr><th>Reference</th><th>Patient</th><th>Phone</th><th>Doctor</th><th>Action</th></tr></thead>
+          <tbody id="waiting-rows"></tbody>
+        </table>
+      </div>
+      <p id="waiting-empty" class="empty" hidden>No one is on the waiting list.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="queues-title">
+      <h2 id="queues-title">Live queues</h2>
+      <p class="hint">Each doctor has their own queue. Mark called patients present, give extra time, or record them as absent after the 2 minute grace period.</p>
+      <div id="queues"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="missed-title">
+      <h2 id="missed-title">Missed turns</h2>
+      <p class="hint">Patients recorded as absent keep their token. They can rejoin at the end of the queue. Completed visits cannot rejoin.</p>
+      <div class="table-wrap">
+        <table class="stack">
+          <thead><tr><th>Token</th><th>Patient</th><th>Phone</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody id="missed-rows"></tbody>
+        </table>
+      </div>
+      <p id="missed-empty" class="empty" hidden>No missed turns.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="audit-title">
+      <h2 id="audit-title">Recent activity</h2>
+      <p class="hint">Staff and queue actions, newest first. Phone numbers are not recorded here.</p>
+      <div class="table-wrap">
+        <table class="stack">
+          <thead><tr><th>Time</th><th>Who</th><th>Action</th><th>Token</th></tr></thead>
+          <tbody id="audit-rows"></tbody>
+        </table>
+      </div>
+      <p id="audit-empty" class="empty" hidden>No activity yet.</p>
+    </section>
+  </main>
+  <script src="/js/common.js"></script>
+  <script src="reception.js"></script>
+</body>
+</html>

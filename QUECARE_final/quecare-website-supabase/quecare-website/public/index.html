@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QueCare - Hospital queue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Instrument+Sans:wght@400..600&display=swap">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand-link" href="/"><span class="wordmark">QueCare</span><span class="tagline">Hospital queue</span></a>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="home-title">
+      <div>
+        <h1 id="home-title">Know where you stand in the queue</h1>
+        <p class="lead">QueCare gives each patient a token for their chosen doctor and shows how many patients are ahead. Patients are called in order, and reception keeps the queue fair.</p>
+        <div class="notice" role="note">
+          <p><strong>In an emergency, do not wait for a token.</strong> Go straight to the emergency department or call 112.</p>
+        </div>
+      </div>
+      <aside class="ticket" aria-label="Example token slip">
+        <p class="ticket-label">Example token slip, for illustration only</p>
+        <p class="ticket-code">CAR-004</p>
+        <div class="perf" aria-hidden="true"></div>
+        <dl class="facts">
+          <dt>Reference</dt><dd>Q-000012</dd>
+          <dt>Doctor</dt><dd>Dr. Asha Rao, Cardiology</dd>
+          <dt>Patients ahead</dt><dd>2</dd>
+          <dt>Status</dt><dd>Confirmed</dd>
+        </dl>
+      </aside>
+    </section>
+
+    <section aria-labelledby="portals-title" class="panel">
+      <h2 id="portals-title">Choose a portal</h2>
+      <p class="hint">Patients need no login to request a token or check their queue. Reception and doctors sign in with their staff account.</p>
+      <div class="cards" style="margin-top:16px">
+        <a class="card" href="/patient/">
+          <h2>Patient portal</h2>
+          <p>Request a token and check your place in the queue.</p>
+          <span class="go">Open patient portal</span>
+        </a>
+        <a class="card" href="/reception/">
+          <h2>Reception portal</h2>
+          <p>Confirm requests, manage the queue and the waiting list. Staff login required.</p>
+          <span class="go">Open reception</span>
+        </a>
+        <a class="card" href="/doctor/">
+          <h2>Doctor portal</h2>
+          <p>See your queue, call the next patient and mark visits complete. Staff login required.</p>
+          <span class="go">Open doctor portal</span>
+        </a>
+      </div>
+    </section>
+  </main>
+  <script src="/js/common.js"></script>
+</body>
+</html>
